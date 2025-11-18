@@ -43,5 +43,5 @@ async def list_emails(input: ListEmails):
 
 if __name__ == "__main__":
     print(f"Agency MCP ready for client: {config.get('company_name', 'Unknown')}")
-    print("Connect → http://localhost:8000/v1")
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    port = int(os.environ.get("PORT", 8000))
+    uvicorn.run(app, host="0.0.0.0", port=port)
